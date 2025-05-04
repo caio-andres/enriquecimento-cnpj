@@ -1,61 +1,66 @@
 # Ferramenta de Enriquecimento de CNPJ
 
-Uma ferramenta Python para enriquecer dados de CNPJ (Cadastro Nacional da Pessoa Jurídica) com informações adicionais.
+Uma ferramenta Python para enriquecer dados de CNPJ (Cadastro Nacional da Pessoa Jurídica) com informações adicionais através de APIs públicas e privadas.
 
-## Começando
-
-### Pré-requisitos
+## Pré-requisitos
 
 - Python 3.x
-- pip (gerenciador de pacotes Python)
+- pip
+- PostgreSQL
+- Acesso à internet
 
-### Instalação
+## Instalação
 
-1. Clone este repositório:
+1. Clone o repositório:
 ```bash
-git clone <url-do-repositorio>
+git clone https://github.com/caio-andres/enriquecimento-cnpj.git
 cd enriquecimento-cnpj
 ```
 
-2. Crie e ative um ambiente virtual:
+2. Crie e ative o ambiente virtual:
 ```bash
 python -m venv .venv
-# No Windows:
-.venv\Scripts\activate
-# No Unix ou MacOS:
-source .venv/bin/activate
+.venv\Scripts\activate  # Windows
+source .venv/bin/activate  # Unix/MacOS
 ```
 
-3. Instale as dependências necessárias:
+3. Instale as dependências:
 ```bash
 pip install -r requirements.txt
 ```
 
-### Estrutura do Projeto
+## Configuração
 
-- `main.py`: Ponto de entrada principal da aplicação
-- `enrich.py`: Contém a lógica de enriquecimento de CNPJ
-- `database.py`: Conexão e operações com banco de dados
-- `requirements.txt`: Dependências do projeto
-
-### Configuração do Ambiente
-
-Crie um arquivo `.env` no diretório raiz com as seguintes variáveis:
+1. Crie o arquivo `.env`:
 ```
-DATABASE_URL=sua_string_de_conexao_com_banco_de_dados
+DATABASE_URL=postgresql://usuario:senha@localhost:5432/nome_do_banco
 ```
 
-### Executando a Aplicação
+## Uso
 
-1. Certifique-se de que seu ambiente virtual está ativado
-2. Execute o script principal:
+1. Ative o ambiente virtual
+2. Execute:
 ```bash
 python main.py
 ```
 
+## Estrutura
+
+- `main.py`: Script principal
+- `enrich.py`: Lógica de enriquecimento
+- `database.py`: Conexão com PostgreSQL
+- `requirements.txt`: Dependências
+
 ## Dependências
 
 - pandas: Para manipulação e análise de dados
-- requests: Para fazer requisições HTTP
-- sqlalchemy: Para operações com banco de dados
-- python-dotenv: Para gerenciamento de variáveis de ambiente 
+- requests: Para fazer requisições HTTP às APIs
+- sqlalchemy: Para operações com banco de dados PostgreSQL
+- python-dotenv: Para gerenciamento de variáveis de ambiente
+
+## Funcionalidades
+
+- Consulta de dados básicos de CNPJ
+- Enriquecimento de dados com informações complementares
+- Armazenamento em banco de dados PostgreSQL
+- Processamento em lote de múltiplos CNPJs 
