@@ -30,17 +30,21 @@ def consult_cnpj(cnpj: str) -> dict | None:
     except Exception as e:
         print(f"Exception trying consult CNPJ {cnpj}: {e}")
     return None
-  
+
+
 def enrich_all(input_path: str):
-  df = pd.read_csv(input_path)
-  enriched_data = []
-  
-  for index, row in df.iterrows():
-    cnpj = str(row["cnpj"]).zfill(14)
-    print(f"Consulting CNPJ: {cnpj}")
-    datas = consult_cnpj(cnpj)
-    if datas:
-      enriched_data.append(datas)
-      insert_company(datas)
-    time.sleep(1.5) # It's limited to 1.5 to avoid the rate limit from API
-    
+    df = pd.read_csv(input_path)
+    enriched_data = []
+
+    for index, row in df.iterrows():
+        cnpj = str(row["cnpj"]).zfill(14)
+        print(f"Consulting CNPJ: {cnpj}")
+        datas = consult_cnpj(cnpj)
+        if datas:
+            enriched_data.append(datas)
+            insert_company(datas)
+        time.sleep(1.5)  # It's limited to 1.5 to avoid the rate limit from API
+
+        enriched_df = pd.DataFrame(enriched_data)
+        enriched_df.to_csv("csv/empresas_enriquecidas.csv", index=False)
+        print("Enriched CSV file generated successfully.")

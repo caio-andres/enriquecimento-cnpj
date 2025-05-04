@@ -1,5 +1,8 @@
+import os
 from sqlalchemy import create_engine, Table, Column, String, MetaData
 from sqlalchemy.exc import IntegrityError
+
+os.makedirs("db", exist_ok=True)
 
 engine = create_engine("sqlite:///empresas.db")
 metadata = MetaData()
