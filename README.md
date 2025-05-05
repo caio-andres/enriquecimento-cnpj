@@ -95,4 +95,4 @@ python -m src.main
 
 ---
 
-Construído com muito esforço por [Caio André](https://github.com/caio-andres)
+Construído com muito esforço por [Caio André](https://github.com/caio-andres) 😼
