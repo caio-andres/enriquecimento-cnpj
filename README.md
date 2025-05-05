@@ -36,7 +36,7 @@ pip install -r requirements.txt
 
 Crie um arquivo `.env` na raiz do projeto com a URL base da API:
 ```
-API_BASE_URL=[ENDPOINT-DA-SUA-API]
+API_BASE_URL="https://receitaws.com.br/v1/cnpj/"
 ```
 
 O banco de dados SQLite será criado automaticamente na primeira vez que você rodar o programa, então não precisa se preocupar com isso! Ele ficará salvo em `db/empresas.db`.
