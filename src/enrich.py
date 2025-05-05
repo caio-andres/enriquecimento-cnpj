@@ -1,9 +1,11 @@
 import pandas as pd
+from dotenv import load_dotenv
 import requests
 import time
 import os
 from src.database import insert_company
 
+load_dotenv()
 API_BASE_URL = os.getenv("API_BASE_URL")
 
 

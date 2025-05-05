@@ -4,7 +4,7 @@ from sqlalchemy.exc import IntegrityError
 
 os.makedirs("db", exist_ok=True)
 
-engine = create_engine("sqlite:///empresas.db")
+engine = create_engine("sqlite:///db/empresas.db")
 metadata = MetaData()
 
 companies = Table(
