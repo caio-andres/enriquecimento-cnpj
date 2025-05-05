@@ -92,3 +92,7 @@ python -m src.main
 - Processa vários CNPJs de uma vez
 - Exporta os resultados para um arquivo CSV
 - Cuida automaticamente de CNPJs duplicados
+
+---
+
+Construído com muito esforço por [Caio André](https://github.com/caio-andres)
